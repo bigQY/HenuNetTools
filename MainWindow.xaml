@@ -1,0 +1,67 @@
+﻿<Window x:Class="HenuNetToolNF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HenuNetToolNF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" FontSize="22">网络配置</Label>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Width="60" >IP地址</Label>
+            <TextBox x:Name="inputIpAddress" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Width="60" >子网掩码</Label>
+            <TextBox x:Name="inputMask" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">255.255.255.0</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Width="60" >网关</Label>
+            <TextBox x:Name="inputGate" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+        </StackPanel>
+        <StackPanel  Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Width="60" >网卡</Label>
+            <ComboBox Width="300" x:Name="ifList" VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="checkNet" Click="checkNet_Click">自动检测ip配置</Button>
+        <TextBlock Grid.Row="2" Grid.RowSpan="4">
+            相关说明：
+            <LineBreak/>
+            ip地址一般为172.20.X.X
+            <LineBreak/>
+            网关为172.20.X.1
+            <LineBreak/>
+            子网掩码255.255.255.0
+            <LineBreak/>
+            网卡为以太网
+            <LineBreak/>
+            作者：bigqy
+        </TextBlock>
+        <ScrollViewer Grid.Row="6" Grid.RowSpan="4" Grid.ColumnSpan="2">
+            <TextBlock  x:Name="logBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" >
+            运行日志
+            <LineBreak/>
+            </TextBlock>
+        </ScrollViewer>
+        <Button x:Name="btnApply" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Click="btnApply_Click">
+            执行设置
+        </Button>
+    </Grid>
+</Window>
